@@ -4,8 +4,8 @@
 # 목차
  - [사용 기술](https://github.com/jungtaemin/pizzasearch#사용-기술)
  - [프로젝트 설계](https://github.com/jungtaemin/pizzasearch#프로젝트-설계)
- - [프로젝트를 시작하면서..]
- - [진행사항]
+ - [프로젝트를 시작하면서..](https://github.com/jungtaemin/pizzasearch#프로젝트를-시작하면서..)
+ - [진행사항](https://github.com/jungtaemin/pizzasearch#진행사항)
 
 
 # 사용 기술
