@@ -35,7 +35,8 @@
 ![프로젝트 설계](https://user-images.githubusercontent.com/96284736/162211966-560c8225-0dbf-4115-8f35-f5e5e47f8753.png)
 **피자 서치 페이지 구현 예정**
 - 이미지 버튼 5개구현(페페로니,고구마/포테이토,파인애플,고기,새우)
-- 뒤로가기 미지 버튼 클릭시 cnt를 모아놓은 클래스에서 v++로 cnt를 한다.cnt에 있는 숫자를 ToppingCnt repository @update문을 사용해서 cnt를 올린다.
+- 뒤로가기 버튼 
+- 클릭시 cnt를 모아놓은 클래스에서 v++로 cnt를 한다.cnt에 있는 숫자를 ToppingCnt repository @update문을 사용해서 cnt를 올린다.
 
 **피자서치페이지 >> 검색후화면 구현 예정**
 - timpeleaf 의 th:each 를 사용해서 동적페이지로 토핑에 해당하는 피자들만 화면에 뿌려기
