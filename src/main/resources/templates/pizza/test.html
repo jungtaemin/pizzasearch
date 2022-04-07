@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>thymeleaf exam3</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <td>peperoni</td>
+        <td>shrimp</td>
+        <td>meat</td>
+        <td>pineapple</td>
+        <td>potato</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="toppingcnt : ${toppingCnt}">
+        <td>[[${toppingcnt.peperoni}]]</td>
+        <td>[[${toppingcnt.shrimp}]]</td>
+        <td>[[${toppingcnt.meat}]]</td>
+        <td>[[${toppingcnt.pineapple}]]</td>
+        <td>[[${toppingcnt.potato}]]</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
