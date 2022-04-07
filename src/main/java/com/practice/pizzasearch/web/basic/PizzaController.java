@@ -21,6 +21,7 @@ public class PizzaController {
         this.cntRepository = cntRepository;
     }
 
+    //  db연결 테스트용
     @GetMapping("/test")
     public String test(Model model){
        List<ToppingCnt> toppingCnt =  cntRepository.getRepository();
