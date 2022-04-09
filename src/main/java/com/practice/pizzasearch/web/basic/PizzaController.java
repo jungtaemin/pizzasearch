@@ -29,6 +29,10 @@ public class PizzaController {
         return "/pizza/test";
         }
 
+        @GetMapping("/check")
+    public String check(){
+        return "/pizza/test";
+        }
 
 
 }
