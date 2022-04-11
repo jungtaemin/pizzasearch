@@ -69,16 +69,39 @@
     background: #F6F6F6;
     }
      .item5{
-     background:#FFFFFF;
+     background:#F6F6F6;
     grid-column:1/5;
     grid-row:2;
+    padding:15px;
     }
-
+    .dbdb{
+    margin:10px;
+    margin-down:30px;
+    }
+    .item5img{
+    margin:10px;
+    }
+    .item5text{
+    padding:10px;
+    background: #FFFFFF;
+    }
+    .texttitle{
+    font-size:15px;
+    font-weight:700;
+    }
+    .textnomal{
+    font-size:12px;
+    }
+    .b700{
+    font-weight:700;
+    margin:10px;
+    }
 </style>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+
 
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
@@ -89,7 +112,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -123,65 +146,98 @@
 
     <div class="item1"></div>
     <div class="item2">
-        <div class ="item2title"><b>토핑으로 검색하기</b></div>
+        <div class ="intem2title"><h1 class="b700" style="font-size:20px;">토핑으로 검색하기</h1></div>
 
-        <form action="/pizza/check">
+        <form action="/pizza/check" method="post">
         <div class="item2main">
 
-            <div class="card" style="width: 100px; margin-right:15px;">
+            <div class="card" style="width: 130px; margin-right:15px;">
                 <img src="images/페페로니.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text"><b>페페로니</b></p>
-                    <input class="input1" type="checkbox" name="" value="">
+                    <label for="peperoni"><b>페페로니</b></label>
+                    <input class="input1" type="checkbox" name="checked"   value="2" id="peperoni" >
+                    <input type="hidden" name="_peperoni" value="on"/>
                 </div>
             </div>
-            <div class="card" style="width: 100px; margin-right:15px;">
+            <div class="card" style="width: 130px; margin-right:15px;">
                 <img src="images/고기.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text"><b>고기</b></p>
-                    <input class="input1" type="checkbox" name="" value="">
+                    <label for="meat"><b>고기</b></label>
+                    <input class="input1" type="checkbox" name="checked"   value="1" id="meat" >
+                    <input type="hidden" name="_meat" value="on"/>
                 </div>
             </div>
-            <div class="card" style="width: 100px; margin-right:15px;">
+            <div class="card" style="width: 130px; margin-right:15px;">
                 <img src="images/고구마.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text"><b>고구마</b></p>
-                    <input class="input1" type="checkbox" name="" value="">
+                    <label for="sweetpotato"><b>고구마</b></label>
+                    <input class="input1" type="checkbox" name="checked"    value="6"id="sweetpotato">
+                    <input type="hidden" name="_sweetpotato" value="on"/>
                 </div>
             </div>
-            <div class="card" style="width: 100px; margin-right:15px;">
+            <div class="card" style="width: 130px; margin-right:15px;">
                 <img src="images/새우.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text"><b>새우</b></p>
-                    <input class="input1" type="checkbox" name="" value="">
+                    <label for="shrimp"><b>새우</b></label>
+                    <input class="input1" type="checkbox" name="checked"    value="5" id="shrimp" >
+                    <input type="hidden" name="_shrimp" value="on"/>
                 </div>
             </div>
-            <div class="card" style="width: 100px; margin-right:15px;">
+            <div class="card" style="width: 130px; margin-right:15px;">
                 <img src="images/파인애플.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text"><b>파인애플</b></p>
-                    <input class="input1" type="checkbox" name="" value="">
+                    <label for="pineapple"><b>파인애플</b></label>
+                    <input class="input1" type="checkbox" name="checked"   value="4"id="pineapple" >
+                    <input type="hidden" name="_pineapple" value="on"/>
                 </div>
             </div>
-            <div class="card" style="width: 100px; margin-right:15px;">
+            <div class="card" style="width: 130px; margin-right:15px;">
                 <img src="images/감자.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text"><b>감자</b></p>
-                    <input class="input1" type="checkbox" name="" value="">
+                    <label for="potato"><b>감자</b></label>
+                    <input class="input1" type="checkbox" name="checked"    value="3" id="potato">
+                    <input type="hidden" name="_potato" value="on"/>
                 </div>
             </div>
 
 
         </div>
             <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="button" style="background-color:#F6F6F6; margin:15px; color:black;"><b>토핑으로 검색하기</b></button>
+                <button class="btn btn-primary" type="submit" style="background-color:#F6F6F6; margin:15px; color:black;"><b>토핑으로 검색하기</b></button>
             </div>
         </form>
 
     </div>        <!--아이템2끝  -->
-    <div class="item3"><b>토핑랭킹</b></div>
+
+
+
+    <div class="item3"><b>토핑랭킹</b>
+    <a th:href="/pizza/test">test용</a>
+    </div>
     <div class="item4"></div>
-    <div class="item5">5</div>
+    <div class="item5">
+        <div class="item5img" >
+            <img src="/images/푸터로고.png" width="100%" >
+            </div>
+        <div class-"dbdb">
+        <div class="text border">
+            <div class="texttitle">
+                현재 등록되어있는 DB:도미노피자
+            </div>
+        </div>
+        </div>
+        <div class="item5text">
+            <div class="text border">
+                <div class="texttitle">
+                도미노피자 DB 추가
+                </div>
+            </div>
+            <div class="textnomal">
+                2022.04.09
+            </div>
+
+        </div>
+    </div>
 
 
 </div>

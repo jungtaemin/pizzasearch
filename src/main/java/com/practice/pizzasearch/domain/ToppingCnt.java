@@ -11,15 +11,17 @@ public class ToppingCnt {
     private Integer meat;
     private Integer pineapple;
     private Integer potato;
+    private Integer sweetpotato;
 
     public ToppingCnt() {
     }
 
-    public ToppingCnt(Integer peperoni, Integer shrimp, Integer meat, Integer pineapple, Integer potato) {
+    public ToppingCnt(Integer peperoni, Integer shrimp, Integer meat, Integer pineapple, Integer potato, Integer sweetpotato) {
         this.peperoni = peperoni;
         this.shrimp = shrimp;
         this.meat = meat;
         this.pineapple = pineapple;
         this.potato = potato;
+        this.sweetpotato = sweetpotato;
     }
 }

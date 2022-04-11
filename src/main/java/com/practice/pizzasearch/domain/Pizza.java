@@ -4,20 +4,35 @@ import lombok.Data;
 
 @Data
 public class Pizza {
-    private String name;
-    private String topping1;
-    private String topping2;
-    private Integer price;
-    private String content;           // 내용
 
-    public Pizza(String name, String topping1, String topping2, Integer price, String content) {
-        this.name = name;
-        this.topping1 = topping1;
-        this.topping2 = topping2;
-        this.price = price;
-        this.content = content;
-    }
+    // --        field
+
+    private String name;
+    private Integer id;
+    private String content;             //내용
+    private String topping;
+    private Integer good;               //좋아요~
+    private Integer bad;                //싫어요~
+    private String price;
+    private String company;           // ex:도미노피자
+    private String image;           // 이미지소스
+
+
+
+    //--           생성자
 
     public Pizza() {
+    }
+
+    public Pizza(String name, Integer id, String content, String topping, Integer good, Integer bad, String price, String company, String image) {
+        this.name = name;
+        this.id = id;
+        this.content = content;
+        this.topping = topping;
+        this.good = good;
+        this.bad = bad;
+        this.price = price;
+        this.company = company;
+        this.image = image;
     }
 }
