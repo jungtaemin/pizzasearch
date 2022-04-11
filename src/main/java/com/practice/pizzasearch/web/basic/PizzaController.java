@@ -23,12 +23,22 @@ public class PizzaController {
     private CntRepository cntRepository;
     private PizzaRepository pizzaRepository;
 
+    private CntService cntService;
+
 
     @Autowired
-    public PizzaController(PizzaRepository pizzaRepository ,CntRepository cntRepository)  {
+    public PizzaController(PizzaRepository pizzaRepository ,CntRepository cntRepository,CntService cntService)  {
         this.pizzaRepository = pizzaRepository;
         this.cntRepository = cntRepository;
+        this.cntService = cntService;
     }
+    @GetMapping("/")
+    public String indexGo(Model model){
+        List<ToppingCnt> toppingCnt = cntRepository.getRepository();
+        model.addAttribute("toppingCnt",toppingCnt);
+        return "index.html";
+    }
+
 
     //  db연결 테스트용
     @GetMapping("/test")
@@ -51,6 +61,7 @@ public class PizzaController {
 
         //  -------------------------------------- 고기일경우
         if (checked.contains("1")) {
+            //cntService.cntMeat();
             List<Pizza> pizza1 = pizzaRepository.findMeat();
 
             for (Pizza pizza2 : pizza1) {
@@ -60,6 +71,7 @@ public class PizzaController {
 
         //  -------------------------------------- 페페로니일경우
         if (checked.contains("2")) {
+            //cntService.cntPeperoni();
             List<Pizza> pizza1 = pizzaRepository.findPeperoni();
 
             for (Pizza pizza2 : pizza1) {
@@ -68,6 +80,7 @@ public class PizzaController {
         }
         //  -------------------------------------- 감자일경우
         if (checked.contains("3")) {
+           // cntService.cntPotato();
             List<Pizza> pizza1 = pizzaRepository.findPotato();
 
             for (Pizza pizza2 : pizza1) {
@@ -76,6 +89,7 @@ public class PizzaController {
         }
         //  -------------------------------------- 파인애플일경우
         if (checked.contains("4")) {
+            //cntService.cntPineapple();
             List<Pizza> pizza1 = pizzaRepository.findPineapple();
 
             for (Pizza pizza2 : pizza1) {
@@ -84,6 +98,7 @@ public class PizzaController {
         }
         //  -------------------------------------- 새우일경우
         if (checked.contains("5")) {
+            //cntService.cntShrimp();
             List<Pizza> pizza1 = pizzaRepository.findShrimp();
 
             for (Pizza pizza2 : pizza1) {
@@ -92,6 +107,7 @@ public class PizzaController {
         }
         //  -------------------------------------- 고구마일경우
         if (checked.contains("6")) {
+            //cntService.cntSweetpotato();
             List<Pizza> pizza1 = pizzaRepository.findSweetpotato();
 
             for (Pizza pizza2 : pizza1) {
@@ -250,8 +266,8 @@ public class PizzaController {
         }
 
         model.addAttribute("pizza3", pizza3);
-        List<ToppingCnt> toppingCnt = cntRepository.getRepository();
-        model.addAttribute("toppingCnt", toppingCnt);
+//        List<ToppingCnt> toppingCnt = cntRepository.getRepository();
+//        model.addAttribute("toppingCnt", toppingCnt);
 
         // 이미지도 model에 넣기
         List<String> pickImage = new ArrayList<>();

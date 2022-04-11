@@ -96,6 +96,7 @@
     font-weight:700;
     margin:10px;
     }
+
 </style>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -142,6 +143,18 @@
 <div class="item0">
 <img src="images/일러스트 로고.png"  width="100%">
 </div>
+<ul class="nav nav-tabs" style="text-align:center; padding-left:23.8%">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">피자랭킹</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">공사중</a>
+    </li>
+
+</ul>
 <div class="container">
 
     <div class="item1"></div>
@@ -211,22 +224,51 @@
 
 
 
-    <div class="item3"><b>토핑랭킹</b>
-    <a th:href="/pizza/test">test용</a>
+    <div class="item3"><b>토핑 순위</b>
+    <table>
+        <thead>
+        <tr>
+            <th>순위</th>>
+            <th>토핑</th>
+            <th>픽횟수</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="$toppingcnt:{toppingCnt}">
+            <td></td>
+            <td th:text ="${toppingcnt.}"></td>
+            <td></td>
+
+        </tr>
+
+        </tbody>
+
+
+    </table>
     </div>
     <div class="item4"></div>
     <div class="item5">
         <div class="item5img" >
             <img src="/images/푸터로고.png" width="100%" >
             </div>
-        <div class-"dbdb">
+        <div class="dbdb">
         <div class="text border">
             <div class="texttitle">
-                현재 등록되어있는 DB:도미노피자
+                현재 등록되어있는 DB:도미노피자,미스터피자
             </div>
         </div>
         </div>
         <div class="item5text">
+
+            <div class="text border">
+                <div class="texttitle">
+                    미스터피자 DB 추가(현재 이미지 오류-수정예정)
+                </div>
+            </div>
+            <div class="textnomal">
+                2022.04.11
+            </div>
+
             <div class="text border">
                 <div class="texttitle">
                 도미노피자 DB 추가
@@ -235,7 +277,6 @@
             <div class="textnomal">
                 2022.04.09
             </div>
-
         </div>
     </div>
 

@@ -191,7 +191,7 @@
                <tr  th:each="pizza3 : ${pizza3}" >
                             <td th:text="${pizza3.id}"></td>
                             <td  th:text="${pizza3.name}"></td>
-                            <td>  <img th:src="@{/images/pizza/{image}(image=${pizza3.image})}" width="100px"></td>
+                            <td>  <img th:src="@{/images/pizza/{image}(image=${pizza3.image})}" width="120px"></td>
                             <td th:text="${pizza3.content}"></td>
                             <td th:text= "${pizza3.price}"></td>
                             <td th:text="${pizza3.company}"></td>
