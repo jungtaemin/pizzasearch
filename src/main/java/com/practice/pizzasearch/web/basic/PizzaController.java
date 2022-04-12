@@ -32,12 +32,7 @@ public class PizzaController {
         this.cntRepository = cntRepository;
         this.cntService = cntService;
     }
-    @GetMapping("/")
-    public String indexGo(Model model){
-        List<ToppingCnt> toppingCnt = cntRepository.getRepository();
-        model.addAttribute("toppingCnt",toppingCnt);
-        return "index.html";
-    }
+
 
 
     //  db연결 테스트용
@@ -266,8 +261,6 @@ public class PizzaController {
         }
 
         model.addAttribute("pizza3", pizza3);
-//        List<ToppingCnt> toppingCnt = cntRepository.getRepository();
-//        model.addAttribute("toppingCnt", toppingCnt);
 
         // 이미지도 model에 넣기
         List<String> pickImage = new ArrayList<>();
@@ -288,6 +281,27 @@ public class PizzaController {
         return "/pizza/search";
 
 
-}
+}   
+
+    // 랭크페이지로 이동 (좋아요순)
+
+
+    @GetMapping("/good")
+    public String goGoodRank(Model model){
+        List<Pizza> good = pizzaRepository.findGood();
+        model.addAttribute("good",good);
+        return"/pizza/rankgood";
+    }
+
+    @GetMapping("/bad")
+    public String goBadRank(Model model) {
+        List<Pizza> bad = pizzaRepository.findbad();
+        model.addAttribute("bad", bad);
+        return "/pizza/rankbad";
+    }
+
+
+
+
 
 }

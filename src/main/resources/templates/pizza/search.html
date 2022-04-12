@@ -11,8 +11,18 @@
     padding= 0;
 
 }
-
+<!-- 밑에 스크롤바 되는지 체크하기   -->
 <style>
+    @media screen and(min-width: 750px){
+
+        overflow-x: hidden;
+        overflow-y: scroll;
+        display: inline-block;
+        border:1px solid #323232;
+        height: 1000px;
+
+    }
+
 
     body {
 
@@ -160,7 +170,8 @@
                 </div>
             <div class="bordergray">
                 <div class="goodbox">
-            <table>
+            <div class="screen and">
+                    <table>
                <thead>
                </thead>
                 <tbody>
@@ -172,6 +183,7 @@
                 </tbody>
 
             </table>
+                </div>
                     </div>
             </div>
 
