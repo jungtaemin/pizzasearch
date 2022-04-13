@@ -11,17 +11,9 @@
     padding= 0;
 
 }
-<!-- 밑에 스크롤바 되는지 체크하기   -->
+
 <style>
-    @media screen and(min-width: 750px){
 
-        overflow-x: hidden;
-        overflow-y: scroll;
-        display: inline-block;
-        border:1px solid #323232;
-        height: 1000px;
-
-    }
 
 
     body {
@@ -32,7 +24,7 @@
     .container{
     display:grid;
     grid-template-columns:0.7fr 5fr 0.7fr;
-    grid-template-rows:0.7fr 4fr 1fr;
+    grid-template-rows:0.7fr 3.7fr 1.1fr;
     gap:10px;
     width: 100%;
     max-width:1127;
@@ -40,7 +32,14 @@
     background: #F6F6F6;
 
     }
+      .overflowtable{
 
+        overflow-y: auto;
+
+        border:1px solid #323232;
+        height:750px;
+
+    }
     .item0{
     margin-bottom:10px;
 
@@ -82,6 +81,7 @@
     .item3{
     grid-row:2;
     background: #FFFFFF;
+    padding-bottom:0;
     }
 
 
@@ -109,14 +109,14 @@
 
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">피자서치</a>
+        <a class="navbar-brand" th:href="@{/pizza/indexgo}">피자서치</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="navbar-toggler-icon"></div>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page"  th:href="@{/pizza/indexgo}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -198,6 +198,7 @@
             </div>
         </div>
         <div class="bordergray">
+            <div class="overflowtable">
            <table class="table table-hover">
                <thead>
                 <tr class="tHead">
@@ -206,7 +207,7 @@
                     <th class="image">이미지</th>
                     <th class="content">설명</th>
                     <th class="price">가격</th>
-                    <th class="company">어디피자?</th>
+                    <th class="company">브랜드</th>
 
                 </tr>
 
@@ -225,27 +226,9 @@
 
                </tbody>
            </table>
-            <nav aria-label="Page navigation example">
-                <div class="text-center">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-                </div>
-            </nav>
+
+            </div>
+
         </div>
         </div>
 

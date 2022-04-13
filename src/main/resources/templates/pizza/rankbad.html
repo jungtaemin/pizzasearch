@@ -5,6 +5,15 @@
     <title>rank</title>
 
     <style>
+
+     .overflowtable{
+
+        overflow-y: auto;
+
+        border:1px solid #323232;
+        height:850px;
+
+    }
         .container{
     display:grid;
     grid-template-columns:0.7fr 5fr 0.7fr;
@@ -125,7 +134,7 @@
 
 <ul class="nav nav-tabs" style="text-align:center; padding-left:23.8%">
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" th:href=@{"/index.html"}>Home</a>
+        <a class="nav-link active" aria-current="page" th:href=@{"/pizza/indexgo"}>Home</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">피자랭킹</a>
@@ -164,6 +173,7 @@
     <div class="item3">
 
         <div class="bordergray">
+            <div class="overflowtable">
             <table class="table table-hover">
                 <thead>
                 <tr class="tHead">
@@ -173,7 +183,7 @@
                     <th class="content">설명</th>
                     <th class="price">좋아요</th>
                     <th class="company">싫어요</th>
-                    <th class="company">어디피자?</th>
+                    <th class="company">브랜드</th>
 
                 </tr>
 
@@ -181,7 +191,7 @@
                 <tbody>
 
                 <tr  th:each="pizzarank : ${bad}" >
-                    <td th:text="${pizzarank.id}"></td>
+                    <td th:text="${pizzarank.rank}"></td>
                     <td  th:text="${pizzarank.name}"></td>
                     <td>  <img th:src="@{/images/pizza/{image}(image=${pizzarank.image})}" width="120px"></td>
                     <td th:text="${pizzarank.content}"></td>
@@ -193,6 +203,7 @@
 
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 

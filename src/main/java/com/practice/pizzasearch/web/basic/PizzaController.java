@@ -42,6 +42,10 @@ public class PizzaController {
         model.addAttribute("toppingCnt", toppingCnt);
         return "/pizza/test";
     }
+    @GetMapping("/indexgo")
+    public String indexgo(){
+        return "/pizza/index";
+    }
 
 
     // ----------------------------------------------------------------------------------------체크박스 >버튼 클릭시 여기로
