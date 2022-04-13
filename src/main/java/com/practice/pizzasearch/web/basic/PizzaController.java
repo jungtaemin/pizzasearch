@@ -24,15 +24,14 @@ public class PizzaController {
     private PizzaRepository pizzaRepository;
 
     private CntService cntService;
-
+    private  static List<Pizza> savePizza = new ArrayList<>();
 
     @Autowired
-    public PizzaController(PizzaRepository pizzaRepository ,CntRepository cntRepository,CntService cntService)  {
+    public PizzaController(PizzaRepository pizzaRepository, CntRepository cntRepository, CntService cntService) {
         this.pizzaRepository = pizzaRepository;
         this.cntRepository = cntRepository;
         this.cntService = cntService;
     }
-
 
 
     //  db연결 테스트용
@@ -42,20 +41,19 @@ public class PizzaController {
         model.addAttribute("toppingCnt", toppingCnt);
         return "/pizza/test";
     }
+
     @GetMapping("/indexgo")
-    public String indexgo(){
-        return "/pizza/index";
+    public String indexgo() {
+        return "/pizza/index2";
     }
 
 
     // ----------------------------------------------------------------------------------------체크박스 >버튼 클릭시 여기로
     @PostMapping("/check")
-    public String check(@RequestParam("checked") List<String> checked  , Model model ) {
+    public String check(@RequestParam("checked") List<String> checked, Model model) {
 
-
+        savePizza.clear();
         Map<Integer, Pizza> pizzas = new HashMap<>();
-
-
 
 
         //  -------------------------------------- 고기일경우
@@ -79,7 +77,7 @@ public class PizzaController {
         }
         //  -------------------------------------- 감자일경우
         if (checked.contains("3")) {
-           // cntService.cntPotato();
+            // cntService.cntPotato();
             List<Pizza> pizza1 = pizzaRepository.findPotato();
 
             for (Pizza pizza2 : pizza1) {
@@ -114,12 +112,12 @@ public class PizzaController {
             }
         }
         List<Pizza> pizza3 = new ArrayList<>();
-        for (Integer key : pizzas.keySet()){
-             pizza3.add(pizzas.get(key));
+        for (Integer key : pizzas.keySet()) {
+            pizza3.add(pizzas.get(key));
         }
-      
+
         //  -------------------------------------------------------체크 2개시 공통된거만 화면에 출력하는 로직  1:고기 2:페페로니 3:감자 4:파인애플 5:새우 6:고구마
-        if(checked.size()>1) {
+        if (checked.size() > 1) {
             List<Pizza> empty = new ArrayList<>();
             List<Pizza> trash = new ArrayList<>();
 
@@ -249,12 +247,6 @@ public class PizzaController {
                 }
 
 
-
-
-
-
-
-
             }
             trash.clear();
             pizza3.clear();
@@ -264,45 +256,77 @@ public class PizzaController {
 
         }
 
+        savePizza = pizza3;
         model.addAttribute("pizza3", pizza3);
 
         // 이미지도 model에 넣기
         List<String> pickImage = new ArrayList<>();
-        if(checked.contains("2"))
+        if (checked.contains("2"))
             pickImage.add("페페로니.png");
-        if(checked.contains("3"))
+        if (checked.contains("3"))
             pickImage.add("감자.png");
-        if(checked.contains("6"))
+        if (checked.contains("6"))
             pickImage.add("고구마.png");
-        if(checked.contains("1"))
+        if (checked.contains("1"))
             pickImage.add("고기.png");
-        if(checked.contains("5"))
+        if (checked.contains("5"))
             pickImage.add("새우.png");
-        if(checked.contains("4"))
+        if (checked.contains("4"))
             pickImage.add("파인애플.png");
-        
-        model.addAttribute("pickImage",pickImage);
+
+        model.addAttribute("pickImage", pickImage);
         return "/pizza/search";
 
 
-}   
+    }
 
     // 랭크페이지로 이동 (좋아요순)
 
 
     @GetMapping("/good")
-    public String goGoodRank(Model model){
+    public String goGoodRank(Model model) {
         List<Pizza> good = pizzaRepository.findGood();
-        model.addAttribute("good",good);
-        return"/pizza/rankgood";
+        model.addAttribute("good", good);
+        return "/pizza/rankgood";
     }
-
     @GetMapping("/bad")
     public String goBadRank(Model model) {
         List<Pizza> bad = pizzaRepository.findbad();
         model.addAttribute("bad", bad);
         return "/pizza/rankbad";
     }
+    //--------------------------------------------------------------------좋아요 싫어요 cnt++
+    @GetMapping("/good/{good}")
+    public String goodCnt(@PathVariable("good") Integer good, Model model) {
+        Pizza Pizza = pizzaRepository.findId(good);
+        Integer num = Pizza.getGood();
+        num++;
+        Pizza.setGood(num);
+        pizzaRepository.setGood(Pizza);
+        model.addAttribute("pizza3",savePizza);
+
+        return "pizza/search";
+    }
+
+    @GetMapping("/bad/{bad}")
+    public String badCnt(@PathVariable("bad") Integer bad, Model model) {
+        Pizza Pizza = pizzaRepository.findId(bad);
+        Integer num = Pizza.getBad();
+        num++;
+        Pizza.setBad(num);
+        pizzaRepository.setBad(Pizza);
+        model.addAttribute("pizza3",savePizza);
+
+        return "pizza/search";
+    }
+//    @GetMapping("/goodCnt")
+//            public void goodCnt(@RequestParam("good") Integer good){
+//        Pizza pizza = pizzaRepository.findId(good);
+//           Integer num=pizza.getGood();
+//            num++;
+//         pizza.setGood(num);
+//         pizzaRepository.setGood(pizza);
+//    }
 
 
 

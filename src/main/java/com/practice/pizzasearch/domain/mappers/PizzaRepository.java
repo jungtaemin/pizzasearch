@@ -3,6 +3,7 @@ package com.practice.pizzasearch.domain.mappers;
 import com.practice.pizzasearch.domain.Pizza;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  */
 @Mapper
 public interface PizzaRepository {
+
 
     // 모두 가져오기 혹시몰라서 ㅎㅎ;
     @Select("select *from pizza")
@@ -60,7 +62,17 @@ public interface PizzaRepository {
     @Select("select rownum rank,pizza.* from(select * from pizza order by bad desc)pizza")
     public List<Pizza> findbad();
 
-    
+
+    //--------------------------------------------------------------------------------------------좋아요 cnt++
+    // id로 찾기
+    @Select("select * from pizza where id= #{integer}")
+    public Pizza findId(Integer integer);
+    // 좋아요 update
+    @Update("update pizza set good = #{good} where id = #{id}")
+    public void setGood(Pizza Pizza);
+
+    @Update("update pizza set bad = #{bad} where id = #{id}")
+    public void setBad(Pizza Pizza);
     //----------------------------------------------------------------------------------------왼쪽 사이드바 인터페이스용 명령문입니다!(시간부족시 폐기예정)
 
 

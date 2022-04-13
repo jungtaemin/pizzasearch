@@ -1,8 +1,10 @@
 package com.practice.pizzasearch.domain;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter  @Setter
 public class Pizza {
 
     // --        field
@@ -36,4 +38,14 @@ public class Pizza {
         this.image = image;
         this.rank = rank;
     }
+
+    // 좋아요 cnt++
+//    public void goodCnt(){
+//        this.good += good++;
+//    }
+//
+//    public void badCnt(){
+//        this.bad += bad++;
+//    }
+
 }

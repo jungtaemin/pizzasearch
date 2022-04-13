@@ -11,7 +11,7 @@
         overflow-y: auto;
 
         border:1px solid #323232;
-        height:850px;
+        height:950px;
 
     }
         .container{
@@ -31,7 +31,11 @@
     background: #F6F6F6;
 
     }
+    .item2{
 
+
+
+    }
     .item4{
     grid-column:3;
     grid-row:1/3;
@@ -71,6 +75,7 @@
     }
     .menu{
     border-bottom: 1px solid #9aa4af;
+    margin-top:80px;
     }
 
     .texttitle{
@@ -81,6 +86,10 @@
     .smalltext{
     font-size:12px;
     font-weight:500;
+    }
+    .ranklogo{
+
+
     }
 
 
@@ -93,14 +102,14 @@
 
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">피자서치</a>
+        <a class="navbar-brand" th:href="@{/pizza/indexgo}">피자서치</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="navbar-toggler-icon"></div>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/pizza/indexgo}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -127,26 +136,28 @@
         </div>
     </div>
 </nav>
-<div class="item0">
-    <img th:src="@{/images/일러스트 로고.png}"  width="100%">
 </div>
-</div>
+
 
 <ul class="nav nav-tabs" style="text-align:center; padding-left:23.8%">
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" th:href=@{"/pizza/indexgo"}>Home</a>
+        <a class="nav-link" aria-current="page" th:href="@{/pizza/indexgo}">Home</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">피자랭킹</a>
+        <a class="nav-link active" th:href="@{/pizza/good}">피자랭킹</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">공사중</a>
+        <a class="nav-link"th:href="@{/pizza/bad}">공사중</a>
     </li>
 
 </ul>
 <div class="container">
     <div class="item1"></div>
     <div class="item2">
+        <div class="ranklogo">
+            <img th:src="@{/images/랭킹로고.png}"  width="800px">
+
+        </div>
         <div >
             <ol class="menu">
                 <li class="menunonclick">
@@ -163,7 +174,7 @@
 
         <div class="text border">
             <div class="texttitle">
-                현재 등록되어있는 DB:도미노피자,미스터피자
+                현재 등록되어있는 DB:도미노피자,미스터피자,피자알볼로
             </div>
             <div class="smalltext">
                 랭킹은 실시간으로 갱신됩니다.

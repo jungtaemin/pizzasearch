@@ -149,13 +149,13 @@
 </div>
 <ul class="nav nav-tabs" style="text-align:center; padding-left:23.8%">
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" th:href=@{"/index.html"}>Home</a>
+        <a class="nav-link active" aria-current="page" th:href="@{/pizza/indexgo}">Home</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">피자랭킹</a>
+        <a class="nav-link" th:href="@{/pizza/good}">피자랭킹</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">공사중</a>
+        <a class="nav-link" th:href="@{/pizza/bad}">공사중</a>
     </li>
 
 </ul>
@@ -202,12 +202,14 @@
            <table class="table table-hover">
                <thead>
                 <tr class="tHead">
-                    <th class="bno">번호</th>
+
                     <th class="name">피자이름</th>
                     <th class="image">이미지</th>
                     <th class="content">설명</th>
                     <th class="price">가격</th>
                     <th class="company">브랜드</th>
+                    <th class="gb">좋아요/싫어요</th>
+
 
                 </tr>
 
@@ -215,12 +217,20 @@
                <tbody>
 
                <tr  th:each="pizza3 : ${pizza3}" >
-                            <td th:text="${pizza3.id}"></td>
+
                             <td  th:text="${pizza3.name}"></td>
                             <td>  <img th:src="@{/images/pizza/{image}(image=${pizza3.image})}" width="120px"></td>
                             <td th:text="${pizza3.content}"></td>
                             <td th:text= "${pizza3.price}"></td>
                             <td th:text="${pizza3.company}"></td>
+                            <td>
+                                <button type="button"th:onclick="|location.href='@{/pizza/good/{good} (good= ${pizza3.id})}'|" ><img th:src="@{/images/good.png}" style="width:50%;background:#ebeef1" >
+                                </button>
+
+                                <button type="button" th:onclick="|location.href='@{/pizza/bad/{bad} (bad= ${pizza3.id})}'|" > <img th:src="@{/images/bad.png}" style="width:50%; background:#ebeef1">
+                                </button>
+                            </td>
+
                </tr>
 
 
