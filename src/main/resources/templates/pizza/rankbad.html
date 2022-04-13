@@ -174,7 +174,7 @@
 
         <div class="text border">
             <div class="texttitle">
-                현재 등록되어있는 DB:도미노피자,미스터피자,피자알볼로
+                현재 등록되어있는 DB:도미노피자,미스터피자,피자알볼로,피자스쿨
             </div>
             <div class="smalltext">
                 랭킹은 실시간으로 갱신됩니다.
@@ -207,7 +207,7 @@
                     <td>  <img th:src="@{/images/pizza/{image}(image=${pizzarank.image})}" width="120px"></td>
                     <td th:text="${pizzarank.content}"></td>
                     <td th:text= "${pizzarank.good}"></td>
-                    <td th:text="${pizzarank.bad}"></td>
+                    <td th:text="${pizzarank.bad}" style="font-weight:bold;"></td>
                     <td th:text="${pizzarank.company}"></td>
                 </tr>
 
