@@ -5,9 +5,8 @@
  - [사용 기술](https://github.com/jungtaemin/pizzasearch#사용-기술)
  - [프로젝트 설계](https://github.com/jungtaemin/pizzasearch#프로젝트-설계)
  - [프로젝트를 시작하면서..](https://github.com/jungtaemin/pizzasearch#프로젝트를-시작하면서..)
- - [진행사항](https://github.com/jungtaemin/pizzasearch#진행사항)
-
-
+ - [검색되는 피자종류](https://github.com/jungtaemin/pizzasearch#검색되는 피자종류)
+ - [주요 기능](https://github.com/jungtaemin/pizzasearch#주요 기능)
 # 사용 기술
 
 **프레임워크 / 라이브러리**
@@ -51,7 +50,14 @@
 이 프로젝트는 스프링을 급하게 공부를 끝내고 무언가를 구현해보는 첫 프로젝트입니다.그래서 mvc패턴에 익숙해지기위함과 동시에 스프링 자체에 익숙하지않기 때문에 
 전체적으로 완성도보다는 공부를 한다는 느낌으로 프로젝트를 진행하려합니다.
 
-# 진행사항 
-![마바연동](https://user-images.githubusercontent.com/96284736/162216192-5b47fef5-07f8-4715-a7b3-0734a5dee54b.PNG)
-<2022-04-07 마이바티스로 db연동>
+
+# 검색되는 피자종류
+![저장 db](https://user-images.githubusercontent.com/96284736/163291474-76033acf-3ac2-4e25-ac39-58eead463fe5.png)
+
+피자스쿨,도미노피자,미스터피자,피자알볼로 4개 브랜드의 모든 피자가 DB에 저장되어있어 검색이가능합니다.
+
+# 주요 기능
+
+![주요기능2](https://user-images.githubusercontent.com/96284736/163291604-7ef7af15-43dc-4830-a2c3-35fceaed1059.png)
+
 
